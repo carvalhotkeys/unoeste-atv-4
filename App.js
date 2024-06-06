@@ -9,11 +9,11 @@ const app = express();
 // Definindo uma rota para o método GET
 app.get('/', (request, response) => {
     return response
-    .status(200)
-    .json({
-        status: true,
-        mensagem: "OK"
-    });
+        .status(200)
+        .json({
+            status: true,
+            mensagem: "OK"
+        });
 });
 
 app.get('/redirect', (request, response) => {
@@ -22,26 +22,28 @@ app.get('/redirect', (request, response) => {
 
 app.get('/liveness', (request, response) => {
     return response
-    .status(200)
-    .json({
-        status: true,
-        mensagem: "liveness",
-        path: "",
-        gid: "",
-        uid: ""
-    });
+        .status(200)
+        .json({
+            status: true,
+            mensagem: "liveness",
+            path: "",
+            gid: "",
+            uid: "",
+            date: new Date().getTime()
+        });
 });
 
 app.get('/readiness', (request, response) => {
     return response
-    .status(200)
-    .json({
-        status: true,
-        mensagem: "readiness",
-        os: os.platform(),
-        freemem: os.freemem(),
-        homedir: os.homedir()
-    });
+        .status(200)
+        .json({
+            status: true,
+            mensagem: "readiness",
+            os: os.platform(),
+            freemem: os.freemem(),
+            homedir: os.homedir(),
+            date: new Date().getTime()
+        });
 });
 
 module.exports = app;
