@@ -1,17 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql2');  // Use mysql2 em vez de mysql para melhor compatibilidade com caching_sha2_password
+const mysql = require('mysql2');
 const os = require('os');
 
 const app = express();
 
 // Configuração da Conexão com o Banco de Dados
 const connection = mysql.createConnection({
-    host: 'localhost', 
+    host: 'host.docker.internal',
     user: 'root',
     password: '123',
-    database: 'universidade'
+    database: 'sys',
+    port: 3306
 });
+
 
 // Conectando ao Banco de Dados
 connection.connect(error => {
@@ -41,7 +43,7 @@ app.get('/liveness', (request, response) => {
         .status(200)
         .json({
             status: true,
-            mensagem: "liveness, MEU APP ESTÁ VIVO!",
+            mensagem: "liveness",
             path: "",
             gid: "",
             uid: "",
@@ -54,7 +56,7 @@ app.get('/readiness', (request, response) => {
         .status(200)
         .json({
             status: true,
-            mensagem: "readiness, MEU APP ESTÁ PRONTO!",
+            mensagem: "readiness",
             os: os.platform(),
             freemem: os.freemem(),
             homedir: os.homedir(),

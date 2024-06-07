@@ -1,6 +1,4 @@
-CREATE DATABASE universidade;
-
-USE universidade;
+USE sys;
 
 CREATE TABLE Pessoas (
     id INT AUTO_INCREMENT PRIMARY KEY,
