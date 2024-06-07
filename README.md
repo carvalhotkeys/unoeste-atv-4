@@ -106,39 +106,7 @@ Se você já criou o container `atv4` anteriormente, pode iniciá-lo novamente u
 docker start atv4
 ```
 
-#### 2. Caso o Container Não Tenha Sido Criado Anteriormente
-
-Use o comando de criação que você mencionou:
-
-```sh
-docker run --name atv4 -e MYSQL_ROOT_PASSWORD=123 -p 3306:3306 -d mysql
-```
-
-#### 3. Verificar se o Container Está Rodando
-
-Para garantir que o container MySQL está rodando, use:
-
-```sh
-docker ps
-```
-
-#### 4. Acessar o MySQL Dentro do Container
-
-Digite a senha `123` quando solicitado:
-
-```sh
-docker exec -it atv4 mysql -u root -p
-```
-
-#### 5. Puxar a Imagem do Docker Hub
-
-Certifique-se de que você tem a imagem `carvalhotkeys/atv4:latest`. Se ainda não a puxou, use:
-
-```sh
-docker pull carvalhotkeys/atv4:latest
-```
-
-#### 6. Iniciar o Container do Projeto
+#### 2. Iniciar o Container do Projeto
 
 Se o container `atv4Banco` já foi criado, você pode iniciá-lo com:
 
@@ -146,21 +114,7 @@ Se o container `atv4Banco` já foi criado, você pode iniciá-lo com:
 docker start atv4Banco
 ```
 
-#### 7. Caso o Container do Projeto Não Tenha Sido Criado Anteriormente
-
-Use o comando para criar e rodar o container:
-
-```sh
-docker run --name atv4Banco -p 3001:3001 -d carvalhotkeys/atv4:latest
-```
-
-#### 8. Verificar se o Container do Projeto Está Rodando
-
-```sh
-docker ps
-```
-
-#### 9. Acessar os Links para o Seu Projeto
+#### 3. Acessar os Links para o Seu Projeto
 
 - [http://localhost:3001/](http://localhost:3001/)
 - [http://localhost:3001/consulta-dados](http://localhost:3001/consulta-dados)
